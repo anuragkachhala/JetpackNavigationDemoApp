@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.anurag.jetpacknavigationappdemo.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_viewBalanceFragment"
+            app:destination="@id/viewBalanceFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewBalanceFragment"
+        android:name="com.anurag.jetpacknavigationappdemo.ViewBalanceFragment"
+        android:label="ViewBalanceFragment"
+        tools:layout="@layout/fragment_view_balance" />
+    <fragment
+        android:id="@+id/viewTransationFragment"
+        android:name="com.anurag.jetpacknavigationappdemo.ViewTransationFragment"
+        android:label="ViewTransationFragment"
+        tools:layout="@layout/fragment_view_transation" />
+    <fragment
+        android:id="@+id/chooseReceiverFragment"
+        android:name="com.anurag.jetpacknavigationappdemo.ChooseReceiverFragment"
+        android:label="ChooseReceiverFragment"
+        tools:layout="@layout/fragment_choose_receiver" />
+</navigation>
