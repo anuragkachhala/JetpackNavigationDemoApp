@@ -35,6 +35,5 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         btnViewTransation.setOnClickListener {
             navController.navigate(navDirections.actionHomeFragmentToViewTransationFragment(),navOption)
         }
-
     }
 }
