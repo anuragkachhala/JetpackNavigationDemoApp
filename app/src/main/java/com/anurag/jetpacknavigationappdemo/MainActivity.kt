@@ -7,10 +7,7 @@ import android.view.MenuItem
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.onNavDestinationSelected
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.ui.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -36,30 +33,38 @@ class MainActivity : AppCompatActivity() {
         // this app bar configuration is needed, because if we do not use this bottom nav fragment will show back key on top
         // so to fix this we make all bottom nav fragment as top level destination
         appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.homeFragment,R.id.abounAppFragment,R.id.notificationFragment)
+            setOf(R.id.homeFragment, R.id.settingFragment, R.id.notificationFragment),
+            drawerLayout  // setup drawerLayout with app bar configuration
         )
-        setupActionBarWithNavController(navController,appBarConfiguration)
+        setupActionBarWithNavController(navController, appBarConfiguration)
 
+        // setup nav controller with bottom navigaiton
         bottomNavigationView.setupWithNavController(navController)
+
+        // setup drawer layout with nav controller
+        drawerNavLayout.setupWithNavController(navController)
     }
 
 
     override fun onSupportNavigateUp(): Boolean {
-        return navController.navigateUp() || super.onSupportNavigateUp()
+        return navController.navigateUp(
+            appBarConfiguration  // need to pass appBarConfiguration when we use drawer layout for humburgur icon
+        ) || super.onSupportNavigateUp()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.nav_menu,menu)
+        menuInflater.inflate(R.menu.nav_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId){
-            R.id.about_app ->{
+        return when (item.itemId) {
+            R.id.about_app -> {
                 val action = NavGraphDirections.actionGlobalAbounAppFragment()
                 navController.navigate(action)
                 true
-            }else ->{
+            }
+            else -> {
                 item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
             }
         }

@@ -7,17 +7,27 @@
         android:id="@+id/homeFragment"
         android:icon="@drawable/ic_home_24"
         android:title="Home"
-        app:showAsAction="always" />
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/settingFragment"
-        android:icon="@drawable/ic_info_24"
-        android:title="Setting"
-        app:showAsAction="always" />
+        android:icon="@drawable/ic_settings_24"
+        android:title="About"
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/notificationFragment"
         android:icon="@drawable/ic_notifications_24"
         android:title="Notification"
-        app:showAsAction="always" />
+        app:showAsAction="never" />
+
+    <item android:title="info">
+        <menu>
+            <item
+                android:id="@+id/abounAppFragment"
+                android:icon="@drawable/ic_info_24"
+                android:title="About App"
+                app:showAsAction="always" />
+        </menu>
+    </item>
 </menu>
