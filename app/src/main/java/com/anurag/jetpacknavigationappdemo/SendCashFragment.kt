@@ -14,6 +14,11 @@ class SendCashFragment : Fragment(R.layout.fragment_send_cash) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        etMoney.setText(SampleData.defaultAmount.toString())
+        SampleData.defaultAmount.observe(viewLifecycleOwner){
+            etMoney.setText(it.toString())
+        }
         // val receiverName = arguments?.getString("name")
         val navController = findNavController()
         val directAction = SendCashFragmentDirections
