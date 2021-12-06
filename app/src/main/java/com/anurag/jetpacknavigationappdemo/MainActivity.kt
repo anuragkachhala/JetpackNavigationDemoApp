@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,6 +20,10 @@ class MainActivity : AppCompatActivity() {
 
         // nav controller is connected to nav host so will get nav controller from nav host
         navController = navHostFragment.navController
+
+        // if theme is no action bar then application will crash because of action bar will set by nav controller so we
+        // have to make toolbar
+        setSupportActionBar(toobar) // step 1  by this it will work properly
 
         setupActionBarWithNavController(navController)
     }
