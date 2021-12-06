@@ -17,6 +17,12 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_homeFragment_to_viewTransationFragment"
+            app:destination="@id/viewTransationFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_chooseReceiverFragment"
+            app:destination="@id/chooseReceiverFragment" />
     </fragment>
     <fragment
         android:id="@+id/viewBalanceFragment"
@@ -32,5 +38,30 @@
         android:id="@+id/chooseReceiverFragment"
         android:name="com.anurag.jetpacknavigationappdemo.ChooseReceiverFragment"
         android:label="ChooseReceiverFragment"
-        tools:layout="@layout/fragment_choose_receiver" />
+        tools:layout="@layout/fragment_choose_receiver" >
+        <action
+            android:id="@+id/action_chooseReceiverFragment_to_sendCashFragment"
+            app:destination="@id/sendCashFragment" >
+
+            <argument android:name="amount"
+                app:argType="long"
+                android:defaultValue="200L"/>
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/sendCashFragment"
+        android:name="com.anurag.jetpacknavigationappdemo.SendCashFragment"
+        android:label="SendCashFragment"
+        tools:layout="@layout/fragment_send_cash">
+        <argument
+            android:name="receiverName"
+            app:argType="string" />
+       <argument
+           android:name="amount"
+           app:argType="long"
+           android:defaultValue="100L"
+           />
+    </fragment>
+
+
 </navigation>
