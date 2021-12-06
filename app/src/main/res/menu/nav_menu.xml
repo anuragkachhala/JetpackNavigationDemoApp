@@ -7,4 +7,10 @@
         android:menuCategory="secondary"
         android:title="Setting"
         app:showAsAction="never" />
+
+    <item android:id="@+id/about_app"
+        android:title="about App"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_info_24"
+        />
 </menu>

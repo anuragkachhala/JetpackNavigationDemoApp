@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -42,6 +43,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
+        return when(item.itemId){
+            R.id.about_app ->{
+                val action = NavGraphDirections.actionGlobalAbounAppFragment()
+                navController.navigate(action)
+                true
+            }else ->{
+                item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
+            }
+        }
+
     }
 }

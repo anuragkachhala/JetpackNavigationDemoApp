@@ -19,8 +19,7 @@
             app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_homeFragment_to_viewTransationFragment"
-            app:destination="@id/viewTransationFragment"
-            />
+            app:destination="@id/viewTransationFragment" />
         <action
             android:id="@+id/action_homeFragment_to_chooseReceiverFragment"
             app:destination="@id/chooseReceiverFragment"
@@ -90,8 +89,16 @@
     <fragment
         android:id="@+id/settingFragment"
         android:name="com.anurag.jetpacknavigationappdemo.SettingFragment"
-        android:label="fragment_setting"
+        android:label="Setting"
         tools:layout="@layout/fragment_setting" />
+    <fragment
+        android:id="@+id/abounAppFragment"
+        android:name="com.anurag.jetpacknavigationappdemo.AbounAppFragment"
+        android:label="About App"
+        tools:layout="@layout/fragment_about_app" />
+    <action
+        android:id="@+id/action_global_abounAppFragment"
+        app:destination="@id/abounAppFragment" />
 
 
 </navigation>
