@@ -52,7 +52,22 @@
         <argument
             android:name="receiverName"
             app:argType="string" />
+        <action
+            android:id="@+id/action_sendCashFragment_to_confimDialogFragment"
+            app:destination="@id/confimDialogFragment" />
     </fragment>
+    <dialog
+        android:id="@+id/confimDialogFragment"
+        android:name="com.anurag.jetpacknavigationappdemo.ConfimDialogFragment"
+        android:label="fragment_dialog_confirm"
+        tools:layout="@layout/fragment_dialog_confirm" >
+        <argument
+            android:name="receiverName"
+            app:argType="string" />
+        <argument
+            android:name="amount"
+            app:argType="long" />
+    </dialog>
 
 
 </navigation>
