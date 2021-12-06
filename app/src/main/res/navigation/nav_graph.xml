@@ -19,10 +19,15 @@
             app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_homeFragment_to_viewTransationFragment"
-            app:destination="@id/viewTransationFragment" />
+            app:destination="@id/viewTransationFragment"
+            />
         <action
             android:id="@+id/action_homeFragment_to_chooseReceiverFragment"
-            app:destination="@id/chooseReceiverFragment" />
+            app:destination="@id/chooseReceiverFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/viewBalanceFragment"
@@ -38,11 +43,14 @@
         android:id="@+id/chooseReceiverFragment"
         android:name="com.anurag.jetpacknavigationappdemo.ChooseReceiverFragment"
         android:label="ChooseReceiverFragment"
-        tools:layout="@layout/fragment_choose_receiver" >
+        tools:layout="@layout/fragment_choose_receiver">
         <action
             android:id="@+id/action_chooseReceiverFragment_to_sendCashFragment"
-            app:destination="@id/sendCashFragment" >
-        </action>
+            app:destination="@id/sendCashFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"></action>
     </fragment>
     <fragment
         android:id="@+id/sendCashFragment"
@@ -55,12 +63,23 @@
         <action
             android:id="@+id/action_sendCashFragment_to_confimDialogFragment"
             app:destination="@id/confimDialogFragment" />
+        <action
+            android:id="@+id/action_sendCashFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+
+
     </fragment>
     <dialog
         android:id="@+id/confimDialogFragment"
         android:name="com.anurag.jetpacknavigationappdemo.ConfimDialogFragment"
         android:label="fragment_dialog_confirm"
-        tools:layout="@layout/fragment_dialog_confirm" >
+        tools:layout="@layout/fragment_dialog_confirm">
         <argument
             android:name="receiverName"
             app:argType="string" />

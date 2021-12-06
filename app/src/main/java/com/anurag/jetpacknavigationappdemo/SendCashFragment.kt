@@ -22,8 +22,16 @@ class SendCashFragment : Fragment(R.layout.fragment_send_cash) {
 
         val amount = etMoney.text
 
-        send.setOnClickListener {
+        btnSend.setOnClickListener {
            navController.navigate(directAction.actionSendCashFragmentToConfimDialogFragment(receiverName, amount = amount.toString().toLong()))
+        }
+
+        btnDone.setOnClickListener {
+            navController.navigate(directAction.actionSendCashFragmentToHomeFragment())
+        }
+
+        btnCancel.setOnClickListener {
+            navController.popBackStack(R.id.homeFragment,true)
         }
 
     }
