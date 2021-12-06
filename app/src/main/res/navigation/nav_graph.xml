@@ -42,10 +42,6 @@
         <action
             android:id="@+id/action_chooseReceiverFragment_to_sendCashFragment"
             app:destination="@id/sendCashFragment" >
-
-            <argument android:name="amount"
-                app:argType="long"
-                android:defaultValue="200L"/>
         </action>
     </fragment>
     <fragment
@@ -56,11 +52,6 @@
         <argument
             android:name="receiverName"
             app:argType="string" />
-       <argument
-           android:name="amount"
-           app:argType="long"
-           android:defaultValue="100L"
-           />
     </fragment>
 
 

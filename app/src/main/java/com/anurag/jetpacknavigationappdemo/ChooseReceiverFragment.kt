@@ -20,7 +20,7 @@ class ChooseReceiverFragment : Fragment(R.layout.fragment_choose_receiver) {
 
            /* val args = Bundle()
             args.putString("name",receiverName)*/
-            navController.navigate(directions.actionChooseReceiverFragmentToSendCashFragment(50,receiverName))
+            navController.navigate(directions.actionChooseReceiverFragmentToSendCashFragment(receiverName))
 
         }
 
