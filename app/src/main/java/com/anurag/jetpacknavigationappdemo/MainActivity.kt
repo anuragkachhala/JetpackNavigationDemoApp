@@ -7,13 +7,17 @@ import android.view.MenuItem
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
+
+    private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +33,14 @@ class MainActivity : AppCompatActivity() {
         // have to make toolbar
         setSupportActionBar(toobar) // step 1  by this it will work properly
 
-        setupActionBarWithNavController(navController)
+        // this app bar configuration is needed, because if we do not use this bottom nav fragment will show back key on top
+        // so to fix this we make all bottom nav fragment as top level destination
+        appBarConfiguration = AppBarConfiguration(
+            setOf(R.id.homeFragment,R.id.abounAppFragment,R.id.notificationFragment)
+        )
+        setupActionBarWithNavController(navController,appBarConfiguration)
+
+        bottomNavigationView.setupWithNavController(navController)
     }
 
 

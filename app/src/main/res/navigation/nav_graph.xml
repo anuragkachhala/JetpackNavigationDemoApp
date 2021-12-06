@@ -99,6 +99,11 @@
     <action
         android:id="@+id/action_global_abounAppFragment"
         app:destination="@id/abounAppFragment" />
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.anurag.jetpacknavigationappdemo.NotificationFragment"
+        android:label="Notification"
+        tools:layout="@layout/fragment_notifition" />
 
 
 </navigation>
